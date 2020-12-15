@@ -13,17 +13,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val rollButton: Button = findViewById(R.id.button)
+        val firstDiceImage: ImageView = findViewById(R.id.firstDiceImageView)
+        val secondDiceImage: ImageView = findViewById(R.id.secondDiceImageView)
+        var result: Int = 0
+        val resultText: TextView = findViewById(R.id.textView)
 
         rollButton.setOnClickListener {
-            rollDice()
-            Toast.makeText(this, "Dice Rolled!", Toast.LENGTH_SHORT).show()
+            result = 0
+            resultText.text = ""
+            result += rollDice(firstDiceImage)
+            result += rollDice(secondDiceImage)
+            resultText.text = "Rolled: ${result}"
         }
     }
 
-    private fun rollDice() {
+    private fun rollDice(diceImage: ImageView): Int {
         val dice = Dice(6)
         val diceRoll = dice.roll()
-        val diceImage: ImageView = findViewById(R.id.imageView)
         val drawableResource = when (diceRoll) {
             1 -> R.drawable.dice_1
             2 -> R.drawable.dice_2
@@ -36,6 +42,8 @@ class MainActivity : AppCompatActivity() {
         diceImage.setImageResource(drawableResource)
 
         diceImage.contentDescription = diceRoll.toString()
+
+        return diceRoll
     }
 }
 
