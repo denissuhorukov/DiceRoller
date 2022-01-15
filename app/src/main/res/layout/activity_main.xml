@@ -24,7 +24,7 @@
         app:layout_constraintEnd_toStartOf="@+id/secondDiceImageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/dice_1" />
+        app:srcCompat="@drawable/dice_1" />
 
     <ImageView
         android:id="@+id/secondDiceImageView"
@@ -34,7 +34,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/firstDiceImageView"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/dice_1" />
+        app:srcCompat="@drawable/dice_1" />
 
     <TextView
         android:id="@+id/textView"
